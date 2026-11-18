@@ -12,3 +12,11 @@ The uploaded source includes `EntryFlow.cs` and `OptiSpec.cs` as application log
 **Primary files:** `Runtime/BaseEntity.cs`, `Runtime/Component/Component.cs`, `Runtime/OrchestrationEngine/OrchestrationEngine.cs`, `Runtime/LogicPool/LogicPool.cs`, `Runtime/LogicPool/LogicNode.cs`.
 
 This documentation describes the inspected source snapshot, not an independently tested release.
+
+## MSUO Kernel System Overview
+
+![MSUO Kernel System Overview](/img/msuo-kernel-system-overview.png)
+
+## MSUO Kernel Request Lifecycle
+
+![MSUO Kernel Request Lifecycle](/img/msuo-kernel-request-lifecycle.gif)
