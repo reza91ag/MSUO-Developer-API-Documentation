@@ -1,6 +1,7 @@
 ---
 title: "System Overview"
 sidebar_label: "System Overview"
+slug: /
 ---
 
 # System Overview
