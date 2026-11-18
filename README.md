@@ -8,6 +8,6 @@ Run: `npm install && npm run start`.
 
 ## License
 
-Copyright © 2026 Sky Digital Dreams All rights reserved.
+Copyright © 2026 Sky Digital Dreams, All rights reserved.
 
 This documentation is publicly readable but proprietary. See [LICENSE](LICENSE) for permitted uses and restrictions. No license to the MSUO kernel or SDK is granted.
