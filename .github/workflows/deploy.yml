@@ -1,13 +1,51 @@
-MSUO-DOC
-MSUO Documentation
 
-Source-grounded first documentation draft from uploaded src.zip. No invented SDK signatures.
+name: Deploy MSUO Documentation
 
-Run: npm install && npm run start.
+"on":
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-Verification: Method descriptions are based on source inspection; no build or runtime tests have been performed. The external database synchronization executable was not in the archive.
-License
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-Copyright © 2026 Sky Digital Dreams, All rights reserved.
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
-This documentation is publicly readable but proprietary. See LICENSE for permitted uses and restrictions. No license to the MSUO kernel or SDK is granted.
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build documentation
+        run: npm run build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
